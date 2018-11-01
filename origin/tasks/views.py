@@ -22,20 +22,29 @@ def index(request):
 	'''
 	[View] - Render all Tasks
 	'''
-	hide_resolved = request.session.get('_hide_resolved', False)
+	_hide = request.COOKIES.get('_hide_resolved','no')
+	hide_resolved = False
+	if _hide == 'yes':
+		hide_resolved = True
+
 	if hide_resolved == False:
 		tasks = Task.objects.all().order_by('-id')
 	else:
-		tasks = Task.objects.filter(resolved=True).order_by('-id')
+		tasks = Task.objects.filter(resolved=False).order_by('-id')
 
 	return render(request, 'tasks/index.html',
 		{'tasks' : tasks, 'hide_resolved' : hide_resolved})
 
 @login_required
 def toggle_hide(request):
-	_hide = request.session.get('_hide_resolved', False)
-	request.session['_hide_resolved'] = not _hide
-	return redirect(index)
+	_hide = request.COOKIES.get('_hide_resolved', 'no')
+	if _hide == 'no':
+		_hide = 'yes'
+	else:
+		_hide = 'no'
+	response = redirect(index)
+	response.set_cookie('_hide_resolved', _hide)
+	return response
 
 @login_required
 def add(request):
