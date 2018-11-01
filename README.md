@@ -19,14 +19,19 @@ Following the assigment, a list of all tasks is presented. Each task may be mark
 
 pip install django==1.11
 
-git clone 
-cd origin
+git clone https://github.com/jumarti/origin.git
+
+cd origin/origin
+
 # sync DB
 python manage.py migrate
+
 # Create 5 (or any number) users with a shared password
 python create_users.py 5 <password>
 #The user names are created as `user0`, `user1` ... `userN`
+
 ```
+
 Run the webserver
 ```
 python manage.py runserver
