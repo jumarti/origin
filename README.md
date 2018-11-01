@@ -4,7 +4,7 @@ A Django web application to show relevant Django and Python skills, focusing on 
 
 ## Live Demo
 Available at:
-
+http://kask.io:1919/
 There are 5 users created already. Passwords should have been sent to you.
 
 
