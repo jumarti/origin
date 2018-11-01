@@ -43,7 +43,7 @@ Run the Django tests
 ```
 python manage.py test
 ```
-
+*Tested on Python 3.6.6*
 
 ## A word on the design choice
 This web application is a multi-page application. The reason for choosing this as oppossed to a single page app is because the UX requirements are fair simple and it is clear from the assigment that focus should be on the Python-Django side of development. 
