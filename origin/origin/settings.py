@@ -27,7 +27,7 @@ DEBUG = True
 
 LOGIN_REDIRECT_URL = '/tasks'
 LOGOUT_REDIRECT_URL = '/'
-ALLOWED_HOSTS = ['kask.io']
+ALLOWED_HOSTS = ['kask.io', 'localhost']
 
 # Application definition
 

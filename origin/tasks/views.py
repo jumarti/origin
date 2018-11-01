@@ -30,7 +30,7 @@ def index(request):
 	if hide_resolved == False:
 		tasks = Task.objects.all().order_by('-id')
 	else:
-		tasks = Task.objects.filter(resolved=True).order_by('-id')
+		tasks = Task.objects.filter(resolved=False).order_by('-id')
 
 	return render(request, 'tasks/index.html',
 		{'tasks' : tasks, 'hide_resolved' : hide_resolved})
