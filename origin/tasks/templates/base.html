@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{% static 'tasks/skeleton/css/skeleton.css' %}"
+	>
+</head>
+<body>
+<div>
+<h2> Tasks App. </h2>
+Logged in as: <b>{{ request.user }}</b>
+</div>
+<hr>
+<div>
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>

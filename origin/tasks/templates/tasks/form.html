@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form
+	action="{{ action_url }}"
+	method="POST"
+	>
+	{% csrf_token %}
+	{{ form }}
+	<div>
+	<input type="submit" value="save" /> <button onclick='window.history.back()'>cancel</button>
+	</div>
+
+
+</form>
+{% endblock %}
