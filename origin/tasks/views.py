@@ -22,7 +22,7 @@ def index(request):
 	'''
 	[View] - Render all Tasks
 	'''
-	_hide = request.COOKIES.get('_hide_resolved')
+	_hide = request.COOKIES.get('_hide_resolved','no')
 	hide_resolved = False
 	if _hide == 'yes':
 		hide_resolved = True
