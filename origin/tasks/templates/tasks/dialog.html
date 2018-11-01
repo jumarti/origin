@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+<div>
+error: {{ error }}
+{% endif %}
+</div>
+<div>
+{{ message }}
+</div>
+<div>
+{% if ok_url %}
+<button onclick='location.href="{{ ok_url }}"'>ok</button>
+{% else %}
+<button onclick='location.href="index"'>ok</button>
+{% endif %}
+
+{% if cancel_url %}
+<button onclick='location.href="{{ cancel_url }}"'>cancel</button>
+{% endif %}
+</div>
+{% endblock %}

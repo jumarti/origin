@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<button onclick='location.href="{% url 'add' %}"'>
+	New task
+</button>
+<button onclick='location.href="{% url 'toggle_hide' %}"' >
+{% if not hide_resolved %}
+	Hide Done
+{% else %}
+	Show All
+{% endif %}
+</button>
+<hr>
+
+<table class="u-full-width">
+	<thead>
+	<tr>
+		<td>id</td>
+		<td>User</td>
+		<td>Task Name</td>
+		<td></td>
+		<td>Done</td>
+		<td>Done By</td>
+		<td></td>
+		<td></td>
+	</tr>
+	</thead>
+	<tbody>
+	{% for task in tasks %}
+		<tr>
+			<td>{{task.id}}</td>
+			<td>{{task.user}}</td>
+			<td>{{task.name}}</td>
+			<td>
+				<button
+					onclick='location.href="{% url 'details' task.id %}"'>
+					details
+					</button>
+			</td>
+			<td>{{task.resolved}}</td>
+			<td>{% if task.resolved_by %}{{task.resolved_by}}{% endif %}</td>
+			<td>
+				<button
+					onclick='location.href="{% url 'resolve' task.id %}"'>
+					Mark as done
+					</button>
+
+			</td>
+			<td>
+				<button
+					onclick='location.href="{% url 'delete' task.id %}"'>
+					Delete
+					</button>
+
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

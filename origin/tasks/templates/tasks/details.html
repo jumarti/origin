@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3> Task {{ task.id }} </h3>
+<div>
+	Name: {{ task.name }}
+</div>
+<hr>
+<div>
+	Assigned to : {{ task.user }}
+</div>
+
+<hr>
+<div style="max-width:200px">
+	description: {{ task.description }}
+</div>
+<hr>
+<div>
+	{% if task.resolved %}
+		Done by {{ task.resolved_by }}
+	{% else %}
+	This task it not done
+	{% endif %}
+</div>
+<hr>
+<button onclick='location.href="{% url 'edit' task.id %}"'>edit</button>
+<button onclick='location.href="index"'>close</button>
+{% endblock %}
