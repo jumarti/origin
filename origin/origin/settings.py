@@ -25,8 +25,9 @@ SECRET_KEY = '^swlhp27b9yzu1v%qu%34anm($5afyosf4k$q30p%z^$&364*v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = '/tasks'
+LOGOUT_REDIRECT_URL = '/'
 ALLOWED_HOSTS = []
-
 
 # Application definition
 

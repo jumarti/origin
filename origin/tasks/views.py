@@ -25,11 +25,9 @@ def index(request, include_done=True):
 
 	'''
 	if include_done == True:
-		tasks = Task.objects.all()
+		tasks = Task.objects.all().order_by('-id')
 	else:
-		tasks = Task.objects.filter(resolved=True)
-
-	tasks.order_by('-id')
+		tasks = Task.objects.filter(resolved=True).order_by('-id')
 
 	return render(request, 'tasks/index.html', {'tasks' : tasks})
 
