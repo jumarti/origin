@@ -15,7 +15,6 @@ Following the assigment, a list of all tasks is presented. Each task may be mark
 ## Installation
 
 ```bash
-#
 
 pip install django==1.11
 
@@ -37,7 +36,6 @@ Run the webserver
 python manage.py runserver
 ```
 
-```
 ## Testing
 Run the Django tests
 ```
