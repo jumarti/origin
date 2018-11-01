@@ -18,18 +18,24 @@ from .helpers import error
 from . import UMESSAGES as um
 
 @login_required
-def index(request, include_done=True):
+def index(request):
 	'''
 	[View] - Render all Tasks
-	- test: include_done
-
 	'''
-	if include_done == True:
+	hide_resolved = request.session.get('_hide_resolved', False)
+	if hide_resolved == False:
 		tasks = Task.objects.all().order_by('-id')
 	else:
 		tasks = Task.objects.filter(resolved=True).order_by('-id')
 
-	return render(request, 'tasks/index.html', {'tasks' : tasks})
+	return render(request, 'tasks/index.html',
+		{'tasks' : tasks, 'hide_resolved' : hide_resolved})
+
+@login_required
+def toggle_hide(request):
+	_hide = request.session.get('_hide_resolved', False)
+	request.session['_hide_resolved'] = not _hide
+	return redirect(index)
 
 @login_required
 def add(request):
@@ -39,8 +45,7 @@ def add(request):
 	- GET: renders an empty NewTaskForm
 	- POST: creates the task, if successful, redirects to index.
 		- test: a valid Task is created. 403 otherwise
-		- test: task's user is the one creating. 403 otherwise
-		- test: requesting user exists. 403 otherwise
+		- test: assignee user exists. 403 otherwise
 		- test: on success, redirected to index
 
 	'''
@@ -125,6 +130,8 @@ def edit(request, tid, task=None):
 
 		if _resolved == True and current_state == False:
 			setattr(task, 'resolved_by', request.user)
+		if _resolved == False and current_state == True:
+			setattr(task, 'resolved_by', None)
 		task.save()
 		# return aok(request, "Created task {}".format(newtask.id))
 		return redirect(details, tid=tid)

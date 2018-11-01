@@ -7,6 +7,7 @@ urlpatterns = [
 	# url('^', auth_views.login),
 	# url(r'^login', auth_views.login),
 	url(r'^add', views.add, name='add'),
+	url(r'^toggle_hide', views.toggle_hide, name='toggle_hide'),
 	url(r'^task/(?P<tid>[0-9]+)$', views.details, name='details'),
 	url(r'^task/(?P<tid>[0-9]+)/resolve$', views.resolve, name='resolve'),
 	url(r'^task/(?P<tid>[0-9]+)/delete$', views.delete, name='delete'),

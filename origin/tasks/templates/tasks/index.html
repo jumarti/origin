@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<button onclick='location.href="{% url 'add' %}"'>New task</button>
+<button onclick='location.href="{% url 'add' %}"'>
+	New task
+</button>
+<button onclick='location.href="{% url 'toggle_hide' %}"' >
+{% if not hide_resolved %}
+	Hide Done
+{% else %}
+	Show All
+{% endif %}
+</button>
 <hr>
 
 <table class="u-full-width">
