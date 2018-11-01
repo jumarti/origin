@@ -10,11 +10,12 @@ There are 5 users created already. Passwords should have been sent to you.
 
 Users: user0,user1,user2,user3,user4 
 
-## How does it work
+## Description
 Following the assigment, a list of all tasks is presented. Each task may be marked as done by anyone. Delete and Edit options are available for a Tasks owner. An add button allows creating New tasks.
 
 
 ## Installation
+(tested with Python 3.6.6)
 
 ```bash
 
@@ -46,7 +47,7 @@ python manage.py test
 
 
 ## A word on the design choice
-This web application is a multi-page application. The reason for choosing this as oppossed to a single page app is because the UX requirements are fair simple and it is clear from the assigment that focus should be on the Python-Django side of development. 
+This web application is a multi-page application. The reason for this as oppossed to a single page app is because the UX requirements are simple and it is clear from the assigment that focus should be on the Python-Django side of the development. 
 
 
 ## For managing users
