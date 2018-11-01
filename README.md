@@ -8,6 +8,7 @@ http://kask.io:1919/
 
 There are 5 users created already. Passwords should have been sent to you.
 
+Users: user0,user1,user2,user3,user4 
 
 ## How does it work
 Following the assigment, a list of all tasks is presented. Each task may be marked as done by anyone. Delete and Edit options are available for a Tasks owner. An add button allows creating New tasks.
